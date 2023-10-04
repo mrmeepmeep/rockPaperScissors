@@ -20,16 +20,20 @@ function getComputerChoice(){
 }
 
 function playRound(playerSelection, computerSelection){
-if (playerSelection === "ROCK" || getComputerChoice === 3){
+if (playerSelection === "ROCK" && computerSelection === "SCISSORS"){
     return "You win! Rock beats Scissors!"
-} else if (playerSelection === "PAPER" || getComputerChoice()=== 1){
+} else if (playerSelection === "PAPER" && computerSelection === "ROCK"){
     return "You win! Paper beats Rock"
-}  else if (playerSelection === "SCISSORS" || getComputerChoice() === 2){
+}  else if (playerSelection === "SCISSORS" && computerSelection === "PAPER"){
     return "You win! Scissors beats Paper"
+} else if ((playerSelection === "ROCK" && computerSelection === "ROCK") ||
+    (playerSelection === "PAPER" && computerSelection === "PAPER") ||
+    (playerSelection === "SCISSORS" && computerSelection === "SCISSORS")) {
+        return "Its a tie!"
+} else {
+    return "You lose!"
 }
-else {
-    return "NICEE"
-}
+
 }
 
 const playerSelection = "ROCK"

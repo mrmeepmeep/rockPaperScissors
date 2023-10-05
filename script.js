@@ -1,32 +1,66 @@
+let playerScore = 0;
+let computerScore = 0;
+const game = () => {
+for (let i = 0; i < 5; i++) {
+    randomNumber = Math.floor(Math.random() * 3) + 1;
 
 function getComputerChoice(){
-    randomNumber = Math.floor(Math.random() * 3) + 1;
+   
     if (randomNumber === 1) {
-        return "ROCK"
+        return "ROCK";
     }  
     else if (randomNumber == 2){
-        return "PAPER"
+        return "PAPER";
     }
     else {
-        return "SCISSORS"
+        return "SCISSORS";
     }
 }
-
 function playRound(playerSelection, computerSelection){
 if (playerSelection === "ROCK" && computerSelection === "SCISSORS"){
-    return "You win!"
+    playerScore++;
+    return "You win!";
 } else if (playerSelection === "PAPER" && computerSelection === "ROCK"){
-    return "You win!"
+    playerScore++;
+    return "You win!";
 }  else if (playerSelection === "SCISSORS" && computerSelection === "PAPER"){
-    return "You win!"
+    playerScore++;
+    return "You win!";
 } else if (playerSelection === computerSelection) {
-        return "Tie!"
+        return "Tie!";
 } else {
-    return "You lose!"
+    computerScore++;
+    return "You lose!";
 }
 }
 
-player = prompt("pick", '')
-const playerSelection = player.toUpperCase()
+
+player = prompt("pick", '');
+const playerSelection = player.toUpperCase();
 const computerSelection = getComputerChoice();
-console.log (playRound(playerSelection, computerSelection))
+const playRoundResult = playRound(playerSelection, computerSelection);
+console.log(playRound(playerSelection,computerSelection));
+
+console.log(`Player pick: ${playerSelection}`);
+console.log(`Computer pick: ${computerSelection}`);
+console.log(`You: ${playerScore}`);
+console.log(`Computer ${computerScore}`);
+
+}
+}
+
+game();
+
+//function score(){
+//  if (playRound) === "You win!"){
+//      playerScore++
+// } else if (playRound() === "You lose!"){
+//      computerScore++
+//  } else {
+//    return playerScore+= 0
+//  }
+//  }
+
+
+
+

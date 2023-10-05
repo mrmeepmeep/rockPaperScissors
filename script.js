@@ -1,10 +1,3 @@
-const rock = document.getElementById("choice-rock")
-const paper = document.getElementById("choice-paper")
-const scissors = document.getElementById("choice-scissors")
-
-
-
-
 
 function getComputerChoice(){
     randomNumber = Math.floor(Math.random() * 3) + 1;
@@ -21,20 +14,19 @@ function getComputerChoice(){
 
 function playRound(playerSelection, computerSelection){
 if (playerSelection === "ROCK" && computerSelection === "SCISSORS"){
-    return "You win! Rock beats Scissors!"
+    return "You win!"
 } else if (playerSelection === "PAPER" && computerSelection === "ROCK"){
-    return "You win! Paper beats Rock"
+    return "You win!"
 }  else if (playerSelection === "SCISSORS" && computerSelection === "PAPER"){
-    return "You win! Scissors beats Paper"
-} else if ((playerSelection === "ROCK" && computerSelection === "ROCK") ||
-    (playerSelection === "PAPER" && computerSelection === "PAPER") ||
-    (playerSelection === "SCISSORS" && computerSelection === "SCISSORS")) {
-        return "Its a tie!"
+    return "You win!"
+} else if (playerSelection === computerSelection) {
+        return "Tie!"
 } else {
     return "You lose!"
 }
-
 }
 
-const playerSelection = "ROCK"
+player = prompt("pick", '')
+const playerSelection = player.toUpperCase()
 const computerSelection = getComputerChoice();
+console.log (playRound(playerSelection, computerSelection))

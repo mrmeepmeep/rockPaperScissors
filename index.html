@@ -5,24 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
     <script src="script.js" defer></script>
-    <title>RPS</title>
+    <title>Rock Paper Scissors</title>
 </head>
 <body>
     <div class="container">
-    <h2>Rock Paper Scissors!</h2>
-    <p>Its time to showcase your skills against the computer!<br> Best of 5 wins.
-    </p>
+        <p id="main-heading">Rock Paper Scissors <br> Best of 5 wins!</p>
     <div class="content">
+        <button class="choicebtns" id="ROCK">ROCK</button>
+        <button class="choicebtns" id="PAPER">PAPER</button>
+        <button class="choicebtns" id="SCISSORS">SCISSORS</button>
 
-
-        <button id="choiceBtn">ROCK</button>
-        <button id="choiceBtn">PAPER</button>
-        <button id="choiceBtn">SCISSORS</button>
+        <p class="gameText" id="playerText">You:</p>
+        <p class="gameText" id="computerText">Computer:</p>
+        <p class="gameText" id="resultText"></p>
     </div>
-        <h1 class="gameText" id="playerText">Player:</h1>
-        <h1 class="gameText" id ="computerText">Computer:</h1>
-        <h1 class="gameText" id = "resultText">Result:</h1>
     </div>
-
 </body>
 </html>

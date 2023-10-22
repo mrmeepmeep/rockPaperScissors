@@ -1,55 +1,64 @@
-// DOM Manipulation
 
-const choiceBtns = document.querySelectorAll('#choiceBtn')
-const computerText = document.querySelector('#computerText')
+
+
+const choicebtns = document.querySelectorAll('.choicebtns')
 const playerText = document.querySelector('#playerText')
+const computerText = document.querySelector('#computerText')
 const resultText = document.querySelector('#resultText')
+
 let playerSelection;
 let computerSelection;
+let playerScore = 0;
+let computerScore = 0;
 
+// Function for playerSelection
 
-choiceBtns.forEach(button => button.addEventListener("click" ,() => {
-
-    playerSelection = button.textContent;
+choicebtns.forEach(button => button.addEventListener('click', () => {
+    playerSelection = button.textContent
     computerSelection;
-    getRandomChoice();
-    playerText.textContent = `Player: ${playerSelection}`
-    computerText.textContent = `Computer: ${computerSelection}`
-    resultText.textContent = checkwinner();
-})) 
+    getRandomChoice()
+    score()
+    playerText.textContent = `You: ${playerScore}`
+    computerText.textContent = `Computer: ${computerScore}`
+    resultText.textContent = `${playRound()}`
+})); 
+
+
+
+
 
 
 function getRandomChoice(){
-    const random = Math.floor(Math.random() *3 ) +1
-    switch(random){
+    let random = Math.floor(Math.random() * 3) + 1
+       switch(random){
         case 1:
-            computerSelection = 'ROCK';
+            computerSelection = "ROCK"
             break;
         case 2:
-            computerSelection = "PAPER";
+            computerSelection = "PAPER"
             break;
         case 3:
-            computerSelection = 'SCISSORS'
+            computerSelection = "SCISSORS"
             break;
-    }
+       }  
 }
 
-function checkwinner(){
+function playRound(){
     if (playerSelection === computerSelection){
         return 'Its a tie!'
-    } else if (computerSelection == 'ROCK'){
-        return (playerSelection == 'PAPER') ? "You win!" : "You lose!"
-
-    } else if (computerSelection == "PAPER"){
-        return (playerSelection == "SCISSORS") ? "You win!" : "You lose!"
-    } else if (computerSelection == "SCISSORS"){
-        return (playerSelection == "ROCK") ? "You win!" : "You lose!"
-    }
+    } else if (playerSelection == "PAPER" && computerSelection == "ROCK" ||
+        playerSelection == "ROCK" && computerSelection == "SCISSORS" ||
+        playerSelection == "SCISSORS" && computerSelection == "PAPER"){
+            return `You win! ${playerSelection} beats ${computerSelection}!`
+   } else {
+    return `You lose! ${computerSelection} beats ${playerSelection}!` 
+   }
 }
 
-
-
-
-console.log(`${computerSelection} and ${playerSelection}`)
-
-
+function score(){
+    if (playRound() == `You win! ${playerSelection} beats ${computerSelection}!`){
+        playerScore++
+        } else if (playRound() == `You lose! ${computerSelection} beats ${playerSelection}!`){
+            computerScore++
+        }
+    }

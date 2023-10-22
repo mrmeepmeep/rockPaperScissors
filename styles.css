@@ -27,6 +27,7 @@ body{
     background-color: rgba(0, 0, 0, 0.139);
     border-radius: 16px;
     color: white;
+    user-select: none;
 }
 
 .content {
@@ -54,6 +55,7 @@ button:hover{
     color: rgb(89, 89, 54);
     margin-top: 15px;
     background-color: antiquewhite;
+    user-select: none;
 }
 
 

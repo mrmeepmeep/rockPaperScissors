@@ -1,43 +1,55 @@
 // DOM Manipulation
-const rockBtn = document.querySelector('#rockBtn')
-const paperBtn = document.querySelector('#paperBtn')
-const scissorsBtn = document.querySelector('#scissorsBtn')
+
+const choiceBtns = document.querySelectorAll('#choiceBtn')
+const computerText = document.querySelector('#computerText')
+const playerText = document.querySelector('#playerText')
+const resultText = document.querySelector('#resultText')
+let playerSelection;
+let computerSelection;
 
 
-//Playerchoice
-rockBtn.addEventListener('click', function(){
-    return 'rock'
-})
+choiceBtns.forEach(button => button.addEventListener("click" ,() => {
 
-paperBtn.addEventListener('click', function(){
-    return 'paper'
-})
-
-scissorsBtn.addEventListener('click', function(){
-    return 'scissors'
-})
-
-
-
-
-
+    playerSelection = button.textContent;
+    computerSelection;
+    getRandomChoice();
+    playerText.textContent = `Player: ${playerSelection}`
+    computerText.textContent = `Computer: ${computerSelection}`
+    resultText.textContent = checkwinner();
+})) 
 
 
 function getRandomChoice(){
-    let random = Math.floor(Math.random() *3 ) +1
-        console.log(random)
-    if (random === 1){
-        return 'rock'
-    }
-    if (random === 2){
-        return "paper"
-    }
-    if (random === 3){
-        return "scissors"
+    const random = Math.floor(Math.random() *3 ) +1
+    switch(random){
+        case 1:
+            computerSelection = 'ROCK';
+            break;
+        case 2:
+            computerSelection = "PAPER";
+            break;
+        case 3:
+            computerSelection = 'SCISSORS'
+            break;
     }
 }
 
-getRandomChoice()
-playerSelection = this.textContent()
-computerSelection = getRandomChoice()
+function checkwinner(){
+    if (playerSelection === computerSelection){
+        return 'Its a tie!'
+    } else if (computerSelection == 'ROCK'){
+        return (playerSelection == 'PAPER') ? "You win!" : "You lose!"
+
+    } else if (computerSelection == "PAPER"){
+        return (playerSelection == "SCISSORS") ? "You win!" : "You lose!"
+    } else if (computerSelection == "SCISSORS"){
+        return (playerSelection == "ROCK") ? "You win!" : "You lose!"
+    }
+}
+
+
+
+
+console.log(`${computerSelection} and ${playerSelection}`)
+
 
